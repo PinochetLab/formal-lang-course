@@ -2,6 +2,9 @@ from networkx.drawing import nx_pydot as pydot
 from networkx import MultiDiGraph as mdg
 from typing import Tuple as tup
 import cfpq_data as c_d
+from collections import namedtuple
+
+GraphInfo = namedtuple('GraphInfo', 'node_count edge_count labels')
 
 
 def load(name):
@@ -9,7 +12,7 @@ def load(name):
 
 
 def get_info(graph):
-    return (
+    return GraphInfo(
         graph.number_of_nodes(),
         graph.number_of_edges(),
         set([x for _, _, x in graph.edges(data="label")]),
