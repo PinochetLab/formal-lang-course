@@ -76,3 +76,4 @@ class ECFG:
             regex = Regex(product[1].strip())
             productions[root] = regex
         return cls(start_symbol, variables, productions)
+
